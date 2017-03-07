@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+}
+
+[c-cloak] {
+  display: none;
+}
+
+#box {
+  width: 76px;
+  height: 76px;
+  background: #fb8;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.title {
+  left: 0;
+}
+
+.title-2{
+  left: 100px;
+}
+.slide-enter-active {
+  transition: all 1s ease;
+}
+.slide-leave-active {
+  transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+/*.slide-enter, .slide-leave-active {
+  transform: translateX(100px);
+}*/
