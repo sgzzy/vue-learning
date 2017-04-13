@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Suduko from './main.vue';
+import './index.css';
 // import Sudu from './suduko.js'
 
 

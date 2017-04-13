@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动插入生成html插件
-// const extractTextPlugin = require('extract-text-webpack-plugin') // 从vue模块中提取css插件
+const extractTextPlugin = require('extract-text-webpack-plugin'); // 从vue模块中提取css插件
 // const webpack = require('webpack')
 const path = require('path');
 
@@ -8,7 +8,7 @@ module.exports = {
 
   output: { // 出口配置
     path: path.resolve(__dirname, './dist/'), // 出口文件的路径
-    filename: 'bundle.js' // 出口文件的文件名
+    filename: '[name].js' // 出口文件的文件名
   },
 
   module: {
@@ -16,15 +16,15 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        exclude: '/node_modules/'
-        // options: {
-        //   loaders: {
-        //     css: extractTextPlugin.extract({
-        //       loader: 'css-loader', // 比填项，用于将资源转换为css导出模块
-        //       fallbackLoader: 'vue-style-loader' // 当css没有被导出的时候这里的 loader(s) 会被使用 （即当在plugins模块中设置allChunks:false的时候）
-        //     })
-        //   }
-        // }
+        exclude: '/node_modules/', 
+        options: {
+          loaders: {
+            css: extractTextPlugin.extract({
+              loader: 'css-loader', // 比填项，用于将资源转换为css导出模块
+              fallbackLoader: 'vue-style-loader' // 当css没有被导出的时候这里的 loader(s) 会被使用 （即当在plugins模块中设置allChunks:false的时候）
+            })
+          }
+        }
       },
       {
         test: /\.html$/,
@@ -37,7 +37,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'] // style为插入html的样式，css为href引入的样式
+        use: extractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        }) // style为插入html的样式，css为href引入的样式
       }
     ]
   },
@@ -55,11 +58,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html'
+    }),
+    new extractTextPlugin({
+      filename: './style.css', // 被导出的css文件的路径及名字
+      allChunks: true // 从所有附加块中提取（默认只从初始块提取）
     })
-    // new extractTextPlugin({
-    //   filename: '/style.css', // 被导出的css文件的路径及名字
-    //   allChunks: true // 从所有附加块中提取（默认只从初始块提取）
-    // })
   ],
   resolve: {
     // require时省略的扩展名，如：require('app') 不需要app.js

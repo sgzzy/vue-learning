@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <div id="app"></div>
-  <script type="text/javascript" src="bundle.js"></script></body>
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./src/base.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<link href="./style.css" rel="stylesheet"></head>
+
+<body>
+  <div id="app"></div>
+  <!--<div id="app" :style="appStyle" :class="{active: isActive }" v-cloak>
+    <p>{{message | capitalize}}</p>
+    <p>{{reversedMessage | capitalize}}</p>
+    <ol>
+      <template v-for="item in items">
+        <li>{{ item.message }}</li>
+        <li class="divider"></li>
+      </template>
+    </ol>
+    <input v-model="newTodoText" v-on:keyup.enter="addNewTodo" placeholder="Add a todo">
+    <ul>
+      <li is="todo-item" v-for="(todo, index) in todos" :title="todo" @remove="todos.splice(index, 1)">
+      </li>
+    </ul>
+    <my-awesome-list :items="items">
+      <template slot="item" scope="props">
+        <li class="my-fancy-item">{{ props.text }}</li>
+      </template>
+    </my-awesome-list>
+    <anchored-heading :level="level">Hello world!</anchored-heading>
+   
+    <button @click="changeBox">Click</button>
+    <transition name="slide">
+      <div id="box" :class="title" v-show="show"></div>
+    </transition>
+  </div>-->
+  <!-- "Mustache"语法（双大括号） -->
+<script type="text/javascript" src="main.js"></script></body>
+
 </html>
