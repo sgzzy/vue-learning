@@ -49,7 +49,7 @@ module.exports = {
 
   devServer: {
     // 配置监听接口
-    port: 8080,
+    port: 8089,
 
     // historyApiFallback用来配置页面重定向
     historyApiFallback: true

@@ -6,13 +6,16 @@
       <input class="pane" :name="index" v-for="(item, index) in items" v-model="items[index]" @input="valueRange">
     </div>
     <level></level>
+    <prop v-bind:msg = "msg"></prop>
+
 </template>
 <script>
   import Pane from './components/pane.vue';
   import Sudu from './suduko.js';
-  import Timer from './components/timer.vue'
+  import Timer from './components/timer.vue';
   import Level from './components/level.vue';
-  import bus from './bus.js'
+  import bus from './bus.js';
+  import prop from './components/prop.vue';
   const arr = [8, 3, 7, 4, 6, 1, 5, 2, 9, 5, 4, 1, 9, 2, 8, 7, 3, 6, 2, 6, 9, 5, 3, 7, 4, 1, 8, 9, 5, 4, 6, 8, 3, 2, 7, 1, 7, 2, 8, 1, 9, 5, 3, 6, 4, 3, 1, 6, 7, 4, 2, 8, 9, 5, 4, 7, 5, 3, 1, 9, 6, 8, 2, 1, 8, 3, 2, 5, 6, 9, 4, 7, 6, 9, 2, 8, 7, 4, 1, 5, 3];
   let soduko = new Array(81);
   for (let i = 0; i < 81; i++) {
@@ -24,7 +27,8 @@
   }
   const data = {
     items: soduko,
-    date: 0   
+    date: 0,
+    msg: 'hello'   
   };
   export default {
     name: 'suduko',
@@ -65,7 +69,8 @@
     },
     components: {
       Timer,
-      Level
+      Level,
+      prop
     }
   };
 </script>
