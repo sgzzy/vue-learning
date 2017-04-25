@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动插入生成h
 const extractTextPlugin = require('extract-text-webpack-plugin'); // 从vue模块中提取css插件
 // const webpack = require('webpack')
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.js', // 入口文件
@@ -16,7 +17,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        exclude: '/node_modules/', 
+        exclude: '/node_modules/',
         options: {
           loaders: {
             css: extractTextPlugin.extract({
@@ -62,6 +63,10 @@ module.exports = {
     new extractTextPlugin({
       filename: './style.css', // 被导出的css文件的路径及名字
       allChunks: true // 从所有附加块中提取（默认只从初始块提取）
+    }),
+    new webpack.ProvidePlugin({
+      $: 'zepto',
+      Swiper: 'swiper'
     })
   ],
   resolve: {
@@ -71,7 +76,7 @@ module.exports = {
     alias: {
       filter: path.join(__dirname, './src/filters'),
       vue$: 'vue/dist/vue.common.js',
-      components: path.join(__dirname, './src/components')
+      components: path.join(__dirname, './src/components'),
     }
   }
 };

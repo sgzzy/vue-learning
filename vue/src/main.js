@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Suduko from './main.vue';
+import Suduko from './app.vue';
 import './index.css';
 // import Sudu from './suduko.js'
 
@@ -12,7 +12,8 @@ Vue.component('my-pane', {
 new Vue({
   render: h => h(Suduko),
 }).$mount('#app');
-
+const swiper = new Swiper();
+console.log(swiper);
 // window.document.addEventListener('keyup', e => {
 //   e.preventDefault()
 //   window.console.log(Suduko.items)

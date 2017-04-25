@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--<div class="cloumn">-->
-      <span class="pip"><my-components></my-components> </span>
+      <span class="pip"><my-components>{{number}}</my-components> </span>
       <span class="pip"> </span>
       <span class="pip"> </span>
       <span class="pip"> </span>
@@ -29,7 +29,7 @@
 
 <script>
   var block = {
-    template: `<span class='title title-2'>{{number}}</span>`
+    template: `<span class='title title-2'></span>`
   }
   export default {
     name: 'app',
@@ -44,7 +44,8 @@
     },
     computed: {
       titleChange: function () {
-        return title + '2'
+        return title + '2';
+        
       }
     }
   }

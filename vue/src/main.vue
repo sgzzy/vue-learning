@@ -56,6 +56,9 @@
         if (suduCheck) {
           console.log('Yor are successful');
         } else {
+          console.log($('#suduko'));
+          const swiper = new Swiper();
+          console.log(swiper);
           console.log('You are failed');
         }
       }

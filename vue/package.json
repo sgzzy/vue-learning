@@ -5,10 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.15.3",
+    "jquery": "^3.2.1",
     "lodash": "^4.17.4",
+    "swiper": "^3.4.2",
     "vue": "^2.1.10",
     "vue-router": "^2.2.1",
-    "vuex": "^2.2.1"
+    "vuex": "^2.2.1",
+    "zepto": "^1.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
